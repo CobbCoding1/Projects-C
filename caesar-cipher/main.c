@@ -25,6 +25,10 @@ char *cipher(char str[], int shift){
   return result;
 }
 
+char *cipher_decrypt(char str[], int shift){
+  return(cipher(str, -shift));
+}
+
 int main(int argc, char *argv[]){
   if(argc < 3){
     printf("CAESAR CIPHER OF %s IS %s\n", "test", cipher("test", 2));
@@ -36,5 +40,7 @@ int main(int argc, char *argv[]){
     exit(1);
   }
   printf("CAESAR CIPHER OF %s IS %s\n", argv[1], cipher(argv[1], atoi(argv[2])));
+  char *cipher_generated = cipher(argv[1], atoi(argv[2]));
+  printf("CAESAR CIPHER DECODE OF %s IS %s\n", cipher_generated, cipher_decrypt(cipher_generated, atoi(argv[2])));
   return 0;
 }
