@@ -13,10 +13,13 @@ int factorial_loops(int num){
 }
 
 int factorial_recursion(int num){
-
+  if(num == 0){
+    return 1;
+  }
+  return(num * factorial_recursion(num-1));
 }
 
 int main(){
-  printf("%d\n", factorial_loops(1));
+  printf("%d\n", factorial_recursion(5));
   return 0;
 }
